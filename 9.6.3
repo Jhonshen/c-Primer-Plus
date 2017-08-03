@@ -1,0 +1,26 @@
+#include <iostream>
+#include <new>
+#include <cstring>
+using namespace std;
+struct chaff
+{
+	char dross[20];
+	int slag;
+};
+
+const int BUF = 512;
+char buffer[BUF];
+int main(int argc, char const *argv[])
+{
+	chaff * arr;
+	arr = new (buffer) chaff[2];
+	char a1[] = "abc";
+	strcpy(arr[0].dross,a1);
+	arr[0].slag = 15;
+	cout << arr[0].dross << endl;
+	chaff * arr1;
+	arr1 = new chaff[2];
+	strcpy(arr1[1].dross,a1);
+	cout << arr1[1].dross << endl;  
+	return 0;
+}
